@@ -1,6 +1,7 @@
 ## Motivation for the UberRadio
 Some years back, I bought an AM /FM table top radio that was visually attractive and had exceptional sound quality, called the Tivoli Audio Model One. Although it was a bit expensive, it was a treasure! I loved to listen to it! It could fill a room with sound, was easy to operate, and was popular with the entire family. It looks like this –
-![Tivoli Model One](https://github.com/lab64makerspace/intro2PCBdesign/blob/master/UberRadio/UberRadio%20Images/Tivoli_Model_One.png)
+
+<img src="../UberRadio/UberRadio Images/Tivoli_Model_One.png" width="700" />
 
 After we moved I found that, at my new home, I did not get good reception with any of my AM / FM radios. Even the Model One with its excellent tuner didn’t work very well. Alas, no more free good music for me!
 
@@ -13,7 +14,7 @@ So the crux is this -
 
 More recently, Matthew Trost shared a project he has been working on. He calls it “LED Towers”. Several other students are building them along with Matthew. The project looks like this (two shown) –</br>
 
-![LED Towers](https://github.com/lab64makerspace/intro2PCBdesign/blob/master/UberRadio/UberRadio%20Images/LED%20Towers.png)
+<img src="../UberRadio/UberRadio Images/LED Towers.png" width="700"/>)
 
 These have speakers in the base and multi-color LEDs arranged such that they illuminate the different pieces of acrylic in response to the sound. Matthew has made good progress in packaging the project (version 2.0 not shown) but it doesn’t include an amplifier to drive the speaker so the sound could be louder.
 
@@ -29,15 +30,22 @@ Before we move forward with this, I need to make a disclaimer-
 I WILL TRY TO PROVIDE PROPER ATTRIBUTION WHENEVER POSSIBLE, BUT I PROBABLY WON'T GET EVRYTHING CORRECT. IF YOU SEE SOMETHING THAT IS YOUR ORIGINAL IDEA, PLEASE LET ME KNOW SO I CAN GIVE YOU CREDIT!*</br>
 
 OK, then, there are a couple of ways to approach this, but one of the first things we'll need is a sort of map of where everything fits. This type of diagram is called a "**block diagram**" and it will allow us to see how the various functions interact. In addition, this representation allows us to focus on the **interfaces** between blocks (and blocks and the external world). This will prove to be a powerful way to understand what each block does and what it needs to function. The first "bare bones" version of the block diagram may be seen here -
-![Starting Block Diagram](https://github.com/lab64makerspace/intro2PCBdesign/blob/master/UberRadio/Uber_Radio.pdf)
+![Starting Block Diagram](Uber_Radio.pdf)
 
 We could use basically any graphics program to create a block digram, but since we are learning KiCAD, I have chosen to us that and create the block diagram as a heirarchical first schematic page. This will allow us to use **global labels** to connect the blocks and make it easier to keep things straight. This is not so difficult for something as simple as the UberRadio, but for more complicated systems this can be a real help!
 
 ### The SAM32 Block
 
-Looking at the blocks, we see that there is a block marked "**MCU / WiFi / BLE**" with another label "**SAM32 Board**". Good news for us, Mr. Max Holliday has designed, built and been hard at work coding and debugging this block! You can find a TON of information about this board on his Github here [**SAM32**](https://github.com/maholli/SAM32). Here is what it looks like - ![SAM32](https://github.com/maholli/SAM32/blob/master/references/boardv2.PNG)</br>
-I **strongly** encourage you to spend some *quality time* with this block because it is a marvel of modern engineering! You may never need another board again!!</br>
-PLEASE THANK MAX FOR ALL HIS TIME AND EFFORT BUILDING THIS!!</br>
+Looking at the blocks, we see that there is a block marked "**MCU / WiFi / BLE**" with another label "**SAM32 Board**". Good news for us, Mr. Max Holliday has designed, built and been hard at work coding and debugging this block! You can find a TON of information about this board on his Github here [**SAM32**](https://github.com/maholli/SAM32). Here is what it looks like -
+
+<img src="https://raw.githubusercontent.com/maholli/SAM32/master/references/top2.jpg" width="500" />
+
+I **strongly** encourage you to spend some *quality time* with this block because it is a marvel of modern engineering! You may never need another board again!!
+
+Here is a link to a diagram with the [SAM32 Pinout](https://www.notion.so/SAM32-Pinout-v2-4-Current-e463fe83c5ba47e78313ccf47eb0b1b5). We're using Version 2.6, so this diagram (for Ver. 2.4 -->) will be what you need!
+
+PLEASE THANK MAX FOR ALL HIS TIME AND EFFORT BUILDING THIS!!
+
 Also don't forget, if you can code, you can contribute! Visit https://github.com/maholli/SAM32/projects/1 for a current list of software tasks that you can help with!
 
 ### The Audio Board Block
@@ -56,7 +64,7 @@ here is a link to the [Edzelf/ESP32-Radio](https://github.com/Edzelf/ESP32-Radio
 
 OK, so the Swiss guy, Andreas Spiess, made his with a VS1053 chip. If we look into this a bit, we find that there is a later chip with very similar but additional capabilities, the [VS1063](www.vlsi.fi/en/products/vs1063.html) also from VLSI. This seems promising! So maybe we can just connect the SAM32 to a VS1063 to produce audio output!?!?
 
-Looking at the prices on the VLSI Web Store, it seems that the VS1053 is about half the price of the VS1063. Is it worth the price difference? More to think about...
+Looking at the prices on the VLSI Web Store, it seems that the VS1053 is about half the price of the VS1063. Is it worth the price difference? More to think about... *Hint: I'm very cheap!*
 
 But wait! We still need something to drive the speaker(s)! This is where Professor Wong's Class D amplifer comes in. We can probably just connect the audio output from the VS10x3 codec to the input of the amplifier section. Hmmm... 
 

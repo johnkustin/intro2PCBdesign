@@ -22,8 +22,9 @@ Although these are super cool, for some projects they can be very difficult to u
 
 **SO**, you are going to fix these deficiencies by creating your OWN "1/2 sized" protoboard!!
 
-Let's look at a couple of existing "1/2 sized" protoboards... <br/>
-<img width="500" src="../../Week_1/Images/Half-sized Protos Orig.jpg">
+Let's look at a couple of existing "1/2 sized" protoboards...
+
+<img width="700" src="../../Week_1/Images/Half-sized Protos Orig.jpg">
 
 What do you notice?
 
@@ -41,8 +42,11 @@ Discussion....
 ## Instructions 
 #### 1) Open a CAD program <br/>
 Choose your favorite **C**omputer **A**ided **D**esign tool. If you don't have one, consider: [Solidworks](https://library.stanford.edu/englib/using-terman/computers-equipment-software/solidworks), [Onshape](https://www.onshape.com/education-plan), or [Inkscape](https://inkscape.org/release/inkscape-0.92.4/). Make a sketch of a board outline (for example a 60 mm x 80 mm rectangle). Fillet the corners of the sketch. Export the sketch as a DXF. You can find more detailed instructions on how to do this on [this page](../../Week_1/Week_1_Activity/Board_Outline_Instructions.md).
-
 You may use our sample DXF file found [here](../../Week_1/Week_1_Activity/Project_1) if you wish. 
+
+
+**Why use a CAD program to make a board outline?**
+We encourage you to make your board outline in a CAD program instead of directly in KiCAD because CAD programs make it easier for you to dimension your sketch geometry and define curves. This also helps you avoid the constraints imposed by KiCAD's grid that makes it challenging to define more complex shapes that don't snap to grid points. Additionally, working with a CAD program allows you to design your outline with reference to the CAD models of other parts of your system (e.g. the box your board may sit in) to ensure proper mechanical integration of all your hardware. 
 
 #### 2) Open the Activity 1 Schematic <br/>
 Open Activity_1.pro in KiCad (found [here](../../Week_1/Week_1_Activity/Project_1)).
@@ -84,7 +88,9 @@ If this doesn't work for you, you can also import the footprint by selecting "Pr
 
 #### 6) Link the footprints to the symbols 
 Symbols are the components on schematics, while footprints are where components get placed onto the board. At this time, the footprint and schematic are still not linked. <br/>
-Hover over the USB connector and press E to get access to symbol properties. Select the button (shaped liked library books) on the far right of the footprint field to open up the footprint library. Select “USB_Mini_B_Female_UX60-MB-5S8” as shown below. 
+Hover over the USB connector and press E to get access to symbol properties. Select the button (shaped liked library books) on the far right of the footprint field to open up the footprint library. <br/>
+<img width="700" src="../../Week_1/Images/symbol-footprint-link.png"> <br/>
+Select “USB_Mini_B_Female_UX60-MB-5S8” as shown below. 
 
 <img width="700" src="../../Week_1/Images/Activity1_13.png">
 
@@ -149,9 +155,9 @@ Zip your files and send them to Steve.
 You're done with activity 1!
 
 
-
-
 -------------------------------------
+*Although we have given you the dimensions for your board, it's important to think about how your board fits into the device you're making and to make modifications accordingly. Here is a brief overview of what that process might look like:*  
+
 OK, so now what is our approach?
 
 Let's think about this!!
@@ -189,6 +195,7 @@ OK, let's place the order.
 
 Wow! That was super cool! I can't wait to see it and solder things up.
 
+<<<<<<< HEAD
 ## Discussion Questions 
 **Why are we building boards in this workshop?**<br/>
 We want to make more than one board, in a reliable manner. 
